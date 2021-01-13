@@ -10,10 +10,7 @@
     ],
     "node-red": {
         "nodes": {
-            "statusbarconfig": "StatusbarConfig.js",
-            "ui_statusbarwidget": "ui_statusbarwidget.js",
-            "StatusbarWidgetTemplate": "StatusbarWidgetTemplate.js",
-            "ui_statusbar": "ui_statusbar.js"
+            "StatusbarWidgetTemplate": "StatusbarWidgetTemplate.js"
         }
     }
 }
