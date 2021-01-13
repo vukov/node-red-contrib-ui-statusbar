@@ -1,0 +1,360 @@
+[
+    {
+        "id": "7054daa5.8a4724",
+        "type": "subflow",
+        "name": "sbInstance",
+        "info": "",
+        "category": "Statusbar",
+        "in": [
+            {
+                "x": 120,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "3bb90504.9b6b6a"
+                    },
+                    {
+                        "id": "2ade150e.8580aa"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 640,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "6ae293fb.bce7fc",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "inputLabels": [
+            "template"
+        ],
+        "outputLabels": [
+            "connect event "
+        ],
+        "icon": "node-red-dashboard/ui_dropdown.png",
+        "status": {
+            "x": 800,
+            "y": 320,
+            "wires": [
+                {
+                    "id": "b7004b9a.455788",
+                    "port": 0
+                },
+                {
+                    "id": "779fbcbd.66af24",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "7b85d59f.e2c8ac",
+        "type": "ui_template",
+        "z": "7054daa5.8a4724",
+        "group": "65eeb2c.b05614c",
+        "name": "other",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "x": 430,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3bb90504.9b6b6a",
+        "type": "switch",
+        "z": "7054daa5.8a4724",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "init",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "ed154a07.6781a8"
+            ],
+            [
+                "7b85d59f.e2c8ac"
+            ]
+        ]
+    },
+    {
+        "id": "ed154a07.6781a8",
+        "type": "ui_template",
+        "z": "7054daa5.8a4724",
+        "group": "65eeb2c.b05614c",
+        "name": "init",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "x": 430,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d40cac15.233bc",
+        "type": "ui_ui_control",
+        "z": "7054daa5.8a4724",
+        "name": "",
+        "events": "all",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "6ae293fb.bce7fc"
+            ]
+        ]
+    },
+    {
+        "id": "a1508412.9c7528",
+        "type": "switch",
+        "z": "7054daa5.8a4724",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 340,
+        "wires": [
+            [
+                "779fbcbd.66af24"
+            ],
+            [
+                "b7004b9a.455788"
+            ]
+        ]
+    },
+    {
+        "id": "2ade150e.8580aa",
+        "type": "trigger",
+        "z": "7054daa5.8a4724",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "a1508412.9c7528"
+            ]
+        ]
+    },
+    {
+        "id": "b7004b9a.455788",
+        "type": "change",
+        "z": "7054daa5.8a4724",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "779fbcbd.66af24",
+        "type": "change",
+        "z": "7054daa5.8a4724",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"fill\":\"green\",\"shape\":\"dot\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6ae293fb.bce7fc",
+        "type": "switch",
+        "z": "7054daa5.8a4724",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "connect",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "65eeb2c.b05614c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "d7d66dee.483e1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d7d66dee.483e1",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "154c0594.1dc13a",
+        "type": "link out",
+        "z": "4b30933e.4d2f7c",
+        "name": "Statusbar template link - output",
+        "links": [
+            "423911b5.df32b",
+            "46e4c576.3244bc",
+            "ab001f4a.bb46e",
+            "af89af6e.6fcdb",
+            "ba0eba99.7df1c8",
+            "d3bb7a56.40cae8",
+            "1499055a.5b2f1b"
+        ],
+        "x": 495,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "68d07849.250048",
+        "type": "link in",
+        "z": "4b30933e.4d2f7c",
+        "name": "Statusbar template link - input",
+        "links": [
+            "3ff5f7f0.005468",
+            "48af811e.b16d",
+            "72c15af9.54fa44",
+            "b03c26a6.0964c8",
+            "b329ddb7.ec7a",
+            "cbc31a2e.ccc1b8",
+            "e59f53ed.0f97c",
+            "7f61a5da.243c6c"
+        ],
+        "x": 215,
+        "y": 200,
+        "wires": [
+            [
+                "eabc212e.56082"
+            ]
+        ]
+    },
+    {
+        "id": "eabc212e.56082",
+        "type": "subflow:7054daa5.8a4724",
+        "z": "4b30933e.4d2f7c",
+        "name": "Statusbar Instance",
+        "env": [],
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "154c0594.1dc13a"
+            ]
+        ]
+    },
+    {
+        "id": "e9270ecf.f3ef4",
+        "type": "comment",
+        "z": "4b30933e.4d2f7c",
+        "name": "Node-red Statusbar Instance",
+        "info": "",
+        "x": 360,
+        "y": 120,
+        "wires": []
+    }
+]
