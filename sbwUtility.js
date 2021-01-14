@@ -48,9 +48,12 @@ module.exports = {
             msg.template = create_HTML(msg);
         } else if ( msg.topic === "print") {
             msg.template = print_HTML(msg);
-        }
+        } else {
+	    // default is update template	
+	    msg.template = update_HTML(msg);	
+	}	
         //console.log("sbwUtility cerateTemplate:\n" + msg.template);
         return msg.template;
 	}
-
+	
 };
