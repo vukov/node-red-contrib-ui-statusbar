@@ -1,0 +1,1436 @@
+[
+    {
+        "id": "30d2c636.50686a",
+        "type": "subflow",
+        "name": "sbInstance",
+        "info": "",
+        "category": "Statusbar",
+        "in": [
+            {
+                "x": 120,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "8064acff.e84ec"
+                    },
+                    {
+                        "id": "163d5cf5.8c0f13"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 640,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "12224488.c37e6b",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "inputLabels": [
+            "template"
+        ],
+        "outputLabels": [
+            "connect event "
+        ],
+        "icon": "node-red-dashboard/ui_dropdown.png",
+        "status": {
+            "x": 800,
+            "y": 320,
+            "wires": [
+                {
+                    "id": "b224dc8d.1c0e1",
+                    "port": 0
+                },
+                {
+                    "id": "e3ec6090.07794",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "e7c4d9d0.060b18",
+        "type": "ui_template",
+        "z": "30d2c636.50686a",
+        "group": "18266d72.948343",
+        "name": "other",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "x": 430,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8064acff.e84ec",
+        "type": "switch",
+        "z": "30d2c636.50686a",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "init",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "ffc55d30.ca728"
+            ],
+            [
+                "e7c4d9d0.060b18"
+            ]
+        ]
+    },
+    {
+        "id": "ffc55d30.ca728",
+        "type": "ui_template",
+        "z": "30d2c636.50686a",
+        "group": "18266d72.948343",
+        "name": "init",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "x": 430,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e12afe3.d8b0d",
+        "type": "ui_ui_control",
+        "z": "30d2c636.50686a",
+        "name": "",
+        "events": "all",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "12224488.c37e6b"
+            ]
+        ]
+    },
+    {
+        "id": "e27ee327.6fd39",
+        "type": "switch",
+        "z": "30d2c636.50686a",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 340,
+        "wires": [
+            [
+                "e3ec6090.07794"
+            ],
+            [
+                "b224dc8d.1c0e1"
+            ]
+        ]
+    },
+    {
+        "id": "163d5cf5.8c0f13",
+        "type": "trigger",
+        "z": "30d2c636.50686a",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "e27ee327.6fd39"
+            ]
+        ]
+    },
+    {
+        "id": "b224dc8d.1c0e1",
+        "type": "change",
+        "z": "30d2c636.50686a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e3ec6090.07794",
+        "type": "change",
+        "z": "30d2c636.50686a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"fill\":\"green\",\"shape\":\"dot\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "12224488.c37e6b",
+        "type": "switch",
+        "z": "30d2c636.50686a",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "connect",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "18266d72.948343",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "280ad6d3.de740a",
+        "type": "subflow",
+        "name": "Subflow 1",
+        "info": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "80d3110c.48a7c"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 580,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "8efd4bfb.e8a6d8",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "8bcae522.e071c8",
+        "type": "template",
+        "z": "280ad6d3.de740a",
+        "name": "sbWidget",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "//\n// Statusbar Widget Definition\n//\nnrStatusBar.register({\n    name: \"widget\",\n    type: \"Widget\",\n    description: \"The widget renders an Widget\",\n    \n    create : function  (id,options) {\n        var sel = id + 'Widget';\n\n        // need to be properly set rgb(29,157,116)\n        if (typeof options === 'undefined') { \n            options = { text:\"test\", color:\"#1D9D74\"}\n        } else {\n            if (typeof options.text === 'undefined') options.text = \"text\";\n            if (typeof options.color === 'undefined') options.offcolor = \"White\";\n        }\n\n        uiButton = function(w) {\n            return('<button class=\"md-icon-button md-button md-ink-ripple\" type=\"button\" style=\"text-transform: none;\" onclick=\"nrStatusBar.click(\\'' + sel + '\\')\">'\n                + '<p id=' + sel + 'Field style=\"display:inline\">' + w + '</p>'\n                + '</button>');\n        }\n        \n        if ($('#' + sel).length === 0 && $('#nrStatusBar').length !== 0 ) {\n            nrStatusBar.log( \"[create] Widget \" + sel + \" with options: \" + JSON.stringify(options));\n            var p = uiButton(options.text);\n            $('#nrStatusBar').append(p);\n            return({type:'Widget', id:id, options:options, tag:p});\n        }\n    },\n\n    update : function(e,payload) {\n        \n        var sel = '#'+ e.id + 'WidgetField';\n        var text = \"-\"\n        if ( typeof payload === \"string\") {\n            text = payload;    \n        } else {\n            text = e.options.text;\n            textcolor = e.options.color;            \n        }\n        $(sel).html(text);\n        //$(sel).css({\"color\": textcolor, \"display\":\"inline\"})\n\n    }\n});",
+        "output": "str",
+        "x": 320,
+        "y": 80,
+        "wires": [
+            [
+                "8efd4bfb.e8a6d8"
+            ]
+        ]
+    },
+    {
+        "id": "8efd4bfb.e8a6d8",
+        "type": "template",
+        "z": "280ad6d3.de740a",
+        "name": "script",
+        "field": "template",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<script>{{{payload}}}</script>",
+        "output": "str",
+        "x": 450,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "80d3110c.48a7c",
+        "type": "change",
+        "z": "280ad6d3.de740a",
+        "name": "init",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "init",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "8bcae522.e071c8"
+            ]
+        ]
+    },
+    {
+        "id": "19e25f7f.319a71",
+        "type": "subflow",
+        "name": "sbPolling",
+        "info": "# Statusbar UI State Polling\n\nThis subflow is required to translate any event of dashborad ui_widgets into an event that can be used to trigger an upadte of a statusbar widget. Pollingis ugly but it works. ",
+        "category": "Statusbar",
+        "in": [
+            {
+                "x": 100,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "f8a84c12.d379a"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1080,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "c115e23d.6d77d",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "inputLabels": [
+            "ui event"
+        ],
+        "outputLabels": [
+            "sbWidget event"
+        ],
+        "icon": "font-awesome/fa-circle-o-notch",
+        "status": {
+            "x": 1080,
+            "y": 300,
+            "wires": [
+                {
+                    "id": "41045a24.e92774",
+                    "port": 0
+                },
+                {
+                    "id": "f3472667.08efb8",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "f8a84c12.d379a",
+        "type": "change",
+        "z": "19e25f7f.319a71",
+        "name": "state variable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "state_var",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4d864f4e.cadef",
+        "type": "inject",
+        "z": "19e25f7f.319a71",
+        "name": "polling",
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "repeat": "0.5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "9204844e.c3b698"
+            ]
+        ]
+    },
+    {
+        "id": "9204844e.c3b698",
+        "type": "function",
+        "z": "19e25f7f.319a71",
+        "name": "get state variable",
+        "func": "msg.payload = flow.get(\"state_var\")||0;\nmsg.topic = \"update\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "c115e23d.6d77d"
+            ]
+        ]
+    },
+    {
+        "id": "c115e23d.6d77d",
+        "type": "rbe",
+        "z": "19e25f7f.319a71",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "payload",
+        "x": 470,
+        "y": 220,
+        "wires": [
+            [
+                "4e013d03.2cbfc4"
+            ]
+        ]
+    },
+    {
+        "id": "41045a24.e92774",
+        "type": "function",
+        "z": "19e25f7f.319a71",
+        "name": "green",
+        "func": "msg.payload = {\n    fill:\"green\",\n    shape:\"dot\"\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 970,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e38601c.c4f7d",
+        "type": "switch",
+        "z": "19e25f7f.319a71",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 320,
+        "wires": [
+            [
+                "41045a24.e92774"
+            ],
+            [
+                "f3472667.08efb8"
+            ]
+        ]
+    },
+    {
+        "id": "4e013d03.2cbfc4",
+        "type": "trigger",
+        "z": "19e25f7f.319a71",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 680,
+        "y": 320,
+        "wires": [
+            [
+                "8e38601c.c4f7d"
+            ]
+        ]
+    },
+    {
+        "id": "f3472667.08efb8",
+        "type": "function",
+        "z": "19e25f7f.319a71",
+        "name": "off",
+        "func": "msg.payload = {};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 970,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b01f241b.02a498",
+        "type": "comment",
+        "z": "19e25f7f.319a71",
+        "name": "get the state variable at 2Hz",
+        "info": "",
+        "x": 200,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3cc102ff.f580fe",
+        "type": "comment",
+        "z": "19e25f7f.319a71",
+        "name": "set the state variable",
+        "info": "",
+        "x": 170,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3749c8e3.010548",
+        "type": "tab",
+        "label": "Complex Statusbar ",
+        "disabled": false,
+        "info": "Simple node to generate the template contnet required to render in the head of the client page."
+    },
+    {
+        "id": "697434ce.553b7c",
+        "type": "StatusbarWidgetTemplate",
+        "z": "3749c8e3.010548",
+        "name": "Led Green",
+        "sbwType": "Led",
+        "sbwId": "Demo",
+        "sbwOptions": "{\"color\":\"Chartreuse\"}",
+        "inputFieldType": "json",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "x": 670,
+        "y": 160,
+        "wires": [
+            [
+                "b3111a76.bb78d8"
+            ]
+        ]
+    },
+    {
+        "id": "bb45d60f.72b928",
+        "type": "ui_switch",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "label": "switch Green",
+        "tooltip": "",
+        "group": "22acfa28.d48d26",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "update",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "6a985c36.4e3264"
+            ]
+        ]
+    },
+    {
+        "id": "cb01d74b.fbe828",
+        "type": "ui_button",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "group": "22acfa28.d48d26",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Green Trigger",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "fa-power-off",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "80146a43.9b4f68"
+            ]
+        ]
+    },
+    {
+        "id": "6a985c36.4e3264",
+        "type": "subflow:19e25f7f.319a71",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "env": [],
+        "x": 450,
+        "y": 160,
+        "wires": [
+            [
+                "697434ce.553b7c"
+            ]
+        ]
+    },
+    {
+        "id": "80146a43.9b4f68",
+        "type": "trigger",
+        "z": "3749c8e3.010548",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "6a985c36.4e3264"
+            ]
+        ]
+    },
+    {
+        "id": "2ddce1ae.24549e",
+        "type": "ui_switch",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "label": "switch 2nd Green",
+        "tooltip": "",
+        "group": "d2a855a6.f043d8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "update",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "6a985c36.4e3264"
+            ]
+        ]
+    },
+    {
+        "id": "b326c2cf.5c0d3",
+        "type": "StatusbarWidgetTemplate",
+        "z": "3749c8e3.010548",
+        "name": "Widget Instance",
+        "sbwType": "Widget",
+        "sbwId": "Server",
+        "sbwOptions": "{\"color\":\"Gold\"}",
+        "inputFieldType": "json",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "x": 820,
+        "y": 520,
+        "wires": [
+            [
+                "438380a1.9e0b6"
+            ]
+        ]
+    },
+    {
+        "id": "28c44ec6.162fa2",
+        "type": "link in",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "903e2624.d9dda8"
+        ],
+        "x": 555,
+        "y": 160,
+        "wires": [
+            [
+                "697434ce.553b7c"
+            ]
+        ]
+    },
+    {
+        "id": "a0e25476.6048a8",
+        "type": "link in",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "903e2624.d9dda8"
+        ],
+        "x": 695,
+        "y": 520,
+        "wires": [
+            [
+                "b326c2cf.5c0d3"
+            ]
+        ]
+    },
+    {
+        "id": "b3111a76.bb78d8",
+        "type": "link out",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "a3872c84.ae315"
+        ],
+        "x": 775,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "438380a1.9e0b6",
+        "type": "link out",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "a3872c84.ae315"
+        ],
+        "x": 935,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "9b1032d7.6a908",
+        "type": "inject",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "topic": "update",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 210,
+        "y": 700,
+        "wires": [
+            [
+                "7698895c.a015f8"
+            ]
+        ]
+    },
+    {
+        "id": "7698895c.a015f8",
+        "type": "trigger",
+        "z": "3749c8e3.010548",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 440,
+        "y": 700,
+        "wires": [
+            [
+                "5318fd2.6d53704"
+            ]
+        ]
+    },
+    {
+        "id": "5318fd2.6d53704",
+        "type": "StatusbarWidgetTemplate",
+        "z": "3749c8e3.010548",
+        "name": "Icon Cog",
+        "sbwType": "Icon",
+        "sbwId": "Server",
+        "sbwOptions": "{\"icon\":\"fa-2x fa-cog fa-spin\",\"officon\":\"fa-2x fa-cog\",\"color\":\"White\",\"offcolor\":\"DarkGrey\"}",
+        "inputFieldType": "json",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "x": 680,
+        "y": 700,
+        "wires": [
+            [
+                "62230362.0dadfc"
+            ]
+        ]
+    },
+    {
+        "id": "d7a50d48.40bf1",
+        "type": "link in",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "903e2624.d9dda8"
+        ],
+        "x": 575,
+        "y": 700,
+        "wires": [
+            [
+                "5318fd2.6d53704"
+            ]
+        ]
+    },
+    {
+        "id": "62230362.0dadfc",
+        "type": "link out",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "a3872c84.ae315"
+        ],
+        "x": 795,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "ebc092bc.a1cc",
+        "type": "inject",
+        "z": "3749c8e3.010548",
+        "name": "animate",
+        "topic": "update",
+        "payload": "{\"feature\":\"animate\",\"interval\":3000}",
+        "payloadType": "json",
+        "repeat": "4",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "697434ce.553b7c"
+            ]
+        ]
+    },
+    {
+        "id": "f39e51f9.fe73e",
+        "type": "inject",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "topic": "update",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "9",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 210,
+        "y": 740,
+        "wires": [
+            [
+                "766e8d76.c0b6a4"
+            ]
+        ]
+    },
+    {
+        "id": "766e8d76.c0b6a4",
+        "type": "trigger",
+        "z": "3749c8e3.010548",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "4",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 440,
+        "y": 740,
+        "wires": [
+            [
+                "e6ee4ec6.56b3"
+            ]
+        ]
+    },
+    {
+        "id": "e6ee4ec6.56b3",
+        "type": "StatusbarWidgetTemplate",
+        "z": "3749c8e3.010548",
+        "name": "Icon Power",
+        "sbwType": "Icon",
+        "sbwId": "Switch",
+        "sbwOptions": "{\"icon\":\"fa-2x fa-power-off\",\"color\":\"Tomato\",\"offcolor\":\"DarkGrey\"}",
+        "inputFieldType": "json",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "x": 690,
+        "y": 740,
+        "wires": [
+            [
+                "e270b374.1a535"
+            ]
+        ]
+    },
+    {
+        "id": "bd60b25c.03127",
+        "type": "link in",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "903e2624.d9dda8"
+        ],
+        "x": 575,
+        "y": 740,
+        "wires": [
+            [
+                "e6ee4ec6.56b3"
+            ]
+        ]
+    },
+    {
+        "id": "e270b374.1a535",
+        "type": "link out",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "a3872c84.ae315"
+        ],
+        "x": 795,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "f88c454f.404b58",
+        "type": "inject",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "topic": "print",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "2",
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "697434ce.553b7c"
+            ]
+        ]
+    },
+    {
+        "id": "9ec5732e.9851",
+        "type": "delay",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 430,
+        "y": 520,
+        "wires": [
+            [
+                "164a817b.3a81df"
+            ]
+        ]
+    },
+    {
+        "id": "2ea228b2.13da38",
+        "type": "inject",
+        "z": "3749c8e3.010548",
+        "name": "Trigger",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "0.9",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 520,
+        "wires": [
+            [
+                "85c09a6b.c972f8"
+            ]
+        ]
+    },
+    {
+        "id": "85c09a6b.c972f8",
+        "type": "change",
+        "z": "3749c8e3.010548",
+        "name": "mod 100",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload%100",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 520,
+        "wires": [
+            [
+                "9ec5732e.9851"
+            ]
+        ]
+    },
+    {
+        "id": "164a817b.3a81df",
+        "type": "function",
+        "z": "3749c8e3.010548",
+        "name": "decorate",
+        "func": "msg.topic = \"update\";\nmsg.payload = msg.payload+\"%\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 520,
+        "wires": [
+            [
+                "b326c2cf.5c0d3"
+            ]
+        ]
+    },
+    {
+        "id": "265d096c.885a66",
+        "type": "link out",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "a3872c84.ae315"
+        ],
+        "x": 975,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1e71885d.adbf08",
+        "type": "link in",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "903e2624.d9dda8"
+        ],
+        "x": 715,
+        "y": 420,
+        "wires": [
+            [
+                "2056675.51f1398"
+            ]
+        ]
+    },
+    {
+        "id": "2056675.51f1398",
+        "type": "subflow:280ad6d3.de740a",
+        "z": "3749c8e3.010548",
+        "name": "sbWidget Definition",
+        "env": [],
+        "x": 850,
+        "y": 420,
+        "wires": [
+            [
+                "265d096c.885a66"
+            ]
+        ]
+    },
+    {
+        "id": "f8453b13.abbc88",
+        "type": "delay",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 430,
+        "y": 620,
+        "wires": [
+            [
+                "bf266b27.743078"
+            ]
+        ]
+    },
+    {
+        "id": "d5128b9b.4e4cc8",
+        "type": "inject",
+        "z": "3749c8e3.010548",
+        "name": "Trigger",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "0.8",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "x": 100,
+        "y": 620,
+        "wires": [
+            [
+                "f9ad5da9.fc4a1"
+            ]
+        ]
+    },
+    {
+        "id": "f9ad5da9.fc4a1",
+        "type": "change",
+        "z": "3749c8e3.010548",
+        "name": "mod 100",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload%100",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 620,
+        "wires": [
+            [
+                "f8453b13.abbc88"
+            ]
+        ]
+    },
+    {
+        "id": "bf266b27.743078",
+        "type": "function",
+        "z": "3749c8e3.010548",
+        "name": "decorate",
+        "func": "msg.topic = \"update\";\n\nvar c = \"White\";\nif (msg.payload < 15) {\n    c = \"Tomate\";\n} else if (msg.payload > 80) {\n    c = \"Lime\";\n}\n\nmsg.payload = {text:msg.payload+\"%\", color:c}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 620,
+        "wires": [
+            [
+                "f3c6316a.a682e"
+            ]
+        ]
+    },
+    {
+        "id": "f3c6316a.a682e",
+        "type": "StatusbarWidgetTemplate",
+        "z": "3749c8e3.010548",
+        "name": "Battery Text",
+        "sbwType": "Text",
+        "sbwId": "Battery",
+        "sbwOptions": "{\"color\":\"Gold\"}",
+        "inputFieldType": "json",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "x": 810,
+        "y": 620,
+        "wires": [
+            [
+                "6667f03d.fca93"
+            ]
+        ]
+    },
+    {
+        "id": "8b107590.550298",
+        "type": "link in",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "903e2624.d9dda8"
+        ],
+        "x": 695,
+        "y": 620,
+        "wires": [
+            [
+                "f3c6316a.a682e"
+            ]
+        ]
+    },
+    {
+        "id": "6667f03d.fca93",
+        "type": "link out",
+        "z": "3749c8e3.010548",
+        "name": "",
+        "links": [
+            "a3872c84.ae315"
+        ],
+        "x": 915,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "903e2624.d9dda8",
+        "type": "link out",
+        "z": "3749c8e3.010548",
+        "name": "Statusbar template link - output",
+        "links": [
+            "dbcb802b.b4a0f",
+            "cc7a330a.46bad",
+            "28c44ec6.162fa2",
+            "a0e25476.6048a8",
+            "8b107590.550298",
+            "d7a50d48.40bf1",
+            "bd60b25c.03127",
+            "1e71885d.adbf08"
+        ],
+        "x": 1135,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a3872c84.ae315",
+        "type": "link in",
+        "z": "3749c8e3.010548",
+        "name": "Statusbar template link - input",
+        "links": [
+            "3ff5f7f0.005468",
+            "48af811e.b16d",
+            "72c15af9.54fa44",
+            "b03c26a6.0964c8",
+            "b329ddb7.ec7a",
+            "cbc31a2e.ccc1b8",
+            "e59f53ed.0f97c",
+            "7f61a5da.243c6c",
+            "b2d35da9.ead25",
+            "43948a8.0a92474",
+            "b3111a76.bb78d8",
+            "438380a1.9e0b6",
+            "6667f03d.fca93",
+            "62230362.0dadfc",
+            "e270b374.1a535",
+            "265d096c.885a66"
+        ],
+        "x": 875,
+        "y": 100,
+        "wires": [
+            [
+                "7e55d2f7.4a74fc"
+            ]
+        ]
+    },
+    {
+        "id": "7e55d2f7.4a74fc",
+        "type": "subflow:30d2c636.50686a",
+        "z": "3749c8e3.010548",
+        "name": "Statusbar Instance",
+        "env": [],
+        "x": 1010,
+        "y": 100,
+        "wires": [
+            [
+                "903e2624.d9dda8"
+            ]
+        ]
+    },
+    {
+        "id": "cf74cb8d.466ad8",
+        "type": "comment",
+        "z": "3749c8e3.010548",
+        "name": "Node-red Statusbar Instance",
+        "info": "",
+        "x": 1020,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "22acfa28.d48d26",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "f910eb6b.28d5b8",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d2a855a6.f043d8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "5e154847.6dba38",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f910eb6b.28d5b8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5e154847.6dba38",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Second",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
