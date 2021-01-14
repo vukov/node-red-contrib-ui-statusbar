@@ -4,7 +4,7 @@ A node-red node contribution for the dashboard ui category to render leds, icons
 
 ![nrStatusbarComplex](/doc/nrStatusbarComplex.png)
 
-*Complex example flow showing multiple statusbar widgest such as leds, icons, and text*
+*Complex example flow showing multiple statusbar widgets such as leds, icons, and text*
 
 ## Installation
 
