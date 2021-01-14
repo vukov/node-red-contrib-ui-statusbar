@@ -17,9 +17,7 @@ npm install git+https://github.com/vukov/node-red-contrib-ui-statusbar.git
 
 ## Examples
 
-Can be found in the node-red menue under `Import -> Examples`
-
-There are currently two example available
+In the node-red menue under `Import -> Examples` there are currently two example available:
 
 * Hello Statusbar
 * Complex Statusbar
