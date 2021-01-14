@@ -8,7 +8,7 @@ A node-red node contribution for the dashboard ui category to render leds, icons
 
 ## Installation
 
-change in the `.node-red` folder and use `npm` 
+Change in your `.node-red` folder and use `npm` for convient installation
 
 ```
 cd ~/.node-red
