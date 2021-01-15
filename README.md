@@ -15,9 +15,11 @@ cd ~/.node-red
 npm install git+https://github.com/vukov/node-red-contrib-ui-statusbar.git
 ```
 
+After the istallation there is on the node palette  a new category called Stausbar with one new node. Two additional subflows become associated with this category when running one of the examples.
+
 ## Examples
 
-In the node-red menue under `Import -> Examples` there are currently two example available:
+In the node-red menu under `Import -> Examples` there are currently two example available:
 
-* Hello Statusbar
-* Complex Statusbar
+* Hello Statusbar - Simple led that can be triggerd to flash 
+* Complex Statusbar - Several status bar widgest are populatin the toolbar, such leds, icons, and text.
