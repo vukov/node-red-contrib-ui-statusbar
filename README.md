@@ -15,7 +15,7 @@ cd ~/.node-red
 npm install git+https://github.com/vukov/node-red-contrib-ui-statusbar.git
 ```
 
-After the istallation there is on the node palette  a new category called Stausbar with one new node. Two additional subflows become associated with this category when running one of the examples.
+After the installation there is on the node palette a new category called Stausbar with one new node. Two additional subflows become associated with this category when running one of the examples (in future node-red 1.2.x releases these subflows might become included in the contribution).
 
 ## Examples
 
