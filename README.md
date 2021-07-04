@@ -19,7 +19,7 @@ After the installation there is on the node palette a new category called Stausb
 
 ## Examples
 
-In the node-red menu under `Import -> Examples` there are currently two examples and the tow subflows available:
+In the node-red menu under `Import -> Examples` there are currently two examples and the two subflows available:
 
 * Hello Statusbar - Simple led that can be triggerd to flash 
 * Complex Statusbar - Several status bar widgest are populating the toolbar, such leds, icons, and text.
