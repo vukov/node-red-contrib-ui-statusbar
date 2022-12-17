@@ -174,10 +174,10 @@ if (typeof nrStatusBar === 'undefined') {
         },
 
         //
-        //  here we may add the stype=width:fit-content" to solve the text wdith isssue
+        //  here we may add the style="width:fit-content" to solve the text wdith isssue
         //
         getButtonTag: function(sel,tags) {
-                var mdB = String.raw`<button class="md-icon-button md-button" type="button" onclick="nrStatusBar.click('` + sel + `')">`;
+                var mdB = String.raw`<button class="md-icon-button md-button" type="button" style="width:fit-content" onclick="nrStatusBar.click('` + sel + `')">`;
                 mdB = mdB + tags + '</button>';
                 return(mdB);
         },
