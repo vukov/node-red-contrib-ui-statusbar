@@ -173,6 +173,9 @@ if (typeof nrStatusBar === 'undefined') {
             return;
         },
 
+        //
+        //  here we may add the stype=width:fit-content" to solve the text wdith isssue
+        //
         getButtonTag: function(sel,tags) {
                 var mdB = String.raw`<button class="md-icon-button md-button" type="button" onclick="nrStatusBar.click('` + sel + `')">`;
                 mdB = mdB + tags + '</button>';
